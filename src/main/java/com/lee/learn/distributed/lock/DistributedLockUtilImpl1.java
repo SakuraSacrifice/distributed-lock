@@ -20,7 +20,7 @@ public class DistributedLockUtilImpl1 {
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/test";
     private static final String DRIVER_CLASS_NAME = "com.mysql.cj.jdbc.Driver";
 
-    private static DataSource dataSource = null;
+    private static volatile DataSource dataSource = null;
 
     private static final String SQL_SELECT_FOR_UPDATE = "SELECT id,lock_key FROM distributed_locks_impl_1 WHERE lock_key=\"%s\" FOR UPDATE;";
 

@@ -21,7 +21,7 @@ public class DistributedLockUtilImpl2 {
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/test";
     private static final String DRIVER_CLASS_NAME = "com.mysql.cj.jdbc.Driver";
 
-    private static DataSource dataSource = null;
+    private static volatile DataSource dataSource = null;
 
     private static final String SQL_INSERT_RECORD = "INSERT INTO distributed_locks_impl_2(lock_key) VALUES (\"%s\");";
     private static final String SQL_DELETE_RECORD = "DELETE FROM distributed_locks_impl_2 WHERE lock_key=\"%s\";";
